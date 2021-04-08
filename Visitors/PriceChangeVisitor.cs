@@ -4,7 +4,7 @@ using VisitorPatternExample.Interfaces;
 
 namespace VisitorPatternExample
 {
-    public class PriceChangeVisitor : IShoppingCartVisitor
+    public class PriceChangeVisitor : IVisitor
     {
         public double Visit(Fruit fruit)
         {

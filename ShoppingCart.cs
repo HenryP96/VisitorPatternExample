@@ -21,15 +21,28 @@ namespace VisitorPatternExample
 
             /* Calculating total cost of items in shopping cart using the
                newly added extensions from the 'Visitor' */
+            Console.WriteLine("Calculating total costs of items in shopping cart...");
+
             double totalCost = 0;
-            IShoppingCartVisitor visitor = new PriceChangeVisitor();
+            IVisitor priceVisitor = new PriceChangeVisitor();
 
             foreach (IStoreElement element in cart)
             {
-                totalCost += element.Accept(visitor);
+                totalCost += element.Accept(priceVisitor);
             }
             Console.WriteLine($"Total cost: {totalCost} kr.");
+            Console.WriteLine("");
 
+
+            /* Printing info of items in shopping cart using the
+               newly added extensions from the 'Visitor' */
+            Console.WriteLine("Printing info of items in shopping cart...");
+
+            IVisitor printVisitor = new PrintInfoVisitor();
+            foreach (IStoreElement element in cart)
+            {
+                totalCost += element.Accept(printVisitor);
+            }
         }
 
     }

@@ -2,7 +2,7 @@
 
 namespace VisitorPatternExample.Interfaces
 {
-    public interface IShoppingCartVisitor
+    public interface IVisitor
     {
         double Visit(Fruit fruit);
         double Visit(Milk milk);

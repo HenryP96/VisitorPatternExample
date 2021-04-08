@@ -2,6 +2,6 @@
 {
     public interface IStoreElement
     {
-        public double Accept(IShoppingCartVisitor visitor);
+        public double Accept(IVisitor visitor);
     }
 }

@@ -23,7 +23,7 @@ namespace VisitorPatternExample
             return cost;
         }
 
-        public double Accept(IShoppingCartVisitor visitor)
+        public double Accept(IVisitor visitor)
         {
             return visitor.Visit(this);
         }

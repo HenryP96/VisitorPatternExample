@@ -3,7 +3,7 @@ using VisitorPatternExample.Interfaces;
 
 namespace VisitorPatternExample
 {
-    public class PrintInfoVisitor : IShoppingCartVisitor
+    public class PrintInfoVisitor : IVisitor
     {
         public double Visit(Fruit fruit)
         {
@@ -16,7 +16,7 @@ namespace VisitorPatternExample
         {
             string formattedDate = milk.ExpiryDate.ToString("dd-MM-yyyy");
             Console.WriteLine($"The brand of the milk is {milk.Brand}, the expiry date is {formattedDate}" +
-                              $"and the price is {milk.Price} kr.");
+                              $" and the price is {milk.Price} kr.");
             return 0.0;
         }
 
