@@ -7,7 +7,7 @@ namespace VisitorPatternExample
 {
     public class ShoppingCart
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             Console.WriteLine("Adding items to the shopping cart...");
 
