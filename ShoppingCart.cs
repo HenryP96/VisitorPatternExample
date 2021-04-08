@@ -15,14 +15,14 @@ namespace VisitorPatternExample
             {
                 new Fruit(50, 1.2, "Apple"),
                 new Fruit(40, 0.4, "Banana"),
-                new Milk(10, "Arla"),
+                new Milk(10, "Arla", new DateTime(2021, 08, 25)),
                 new Shirt(150, "Black", "Nike")
             };
 
             /* Calculating total cost of items in shopping cart using the
                newly added extensions from the 'Visitor' */
             double totalCost = 0;
-            IShoppingCartVisitor visitor = new ShoppingCartVisitor();
+            IShoppingCartVisitor visitor = new PriceChangeVisitor();
 
             foreach (IStoreElement element in cart)
             {

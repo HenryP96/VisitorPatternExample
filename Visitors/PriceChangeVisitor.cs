@@ -4,14 +4,22 @@ using VisitorPatternExample.Interfaces;
 
 namespace VisitorPatternExample
 {
-    public class ShoppingCartVisitor : IShoppingCartVisitor
+    public class PriceChangeVisitor : IShoppingCartVisitor
     {
         public double Visit(Fruit fruit)
         {
-            // Calculating cost of fruit(s)
-            var cost = fruit.PricePerKg * fruit.Weight;
+            // 20% discount if weight is above 1 kg
+            var fruitPrice = fruit.CalculatePrice();
+            var cost = (fruit.Weight > 1.0) ? (fruitPrice * 0.8) : fruitPrice;
 
-            Console.WriteLine($"{fruit.Name}, {fruit.Weight} kg: {cost} kr.");
+            if (cost != fruitPrice)
+            {
+                Console.WriteLine($"{fruit.Name}, {fruit.Weight} kg: {cost} kr. (20% discount)");
+            }
+            else
+            {
+                Console.WriteLine($"{fruit.Name}, {fruit.Weight} kg: {cost} kr.");
+            }
             return cost;
         }
 
@@ -23,20 +31,25 @@ namespace VisitorPatternExample
             if (milk.Brand == "Arla")
             {
                 cost *= 0.9;
+                Console.WriteLine($"Milk: {cost} kr. (10% discount)");
             }
-
-            Console.WriteLine($"Milk, {milk.Brand}: {cost} kr.");
+            else
+            {
+                Console.WriteLine($"Milk: {cost} kr.");
+            }
             return cost;
         }
 
         public double Visit(Shirt shirt)
         {
             double cost = shirt.Price;
+            string temp = "";
 
             // The brand 'Adidas' is 10% more expensive
             if (shirt.Brand == "Adidas")
             {
                 cost *= 1.1;
+                temp += " (10% added taxes)";
             }
 
             // Save 30 kr. if the shirt is black
@@ -50,9 +63,11 @@ namespace VisitorPatternExample
                 {
                     cost = 0;
                 }
+
+                temp += " (30 kr. discount)";
             }
 
-            Console.WriteLine($"Shirt, {shirt.Brand}: {cost} kr.");
+            Console.WriteLine($"Shirt: {cost} kr." + temp);
             return cost;
         }
     }

@@ -1,4 +1,5 @@
-﻿using VisitorPatternExample.Interfaces;
+﻿using System;
+using VisitorPatternExample.Interfaces;
 
 namespace VisitorPatternExample
 {
@@ -14,6 +15,12 @@ namespace VisitorPatternExample
             PricePerKg = pricePerKg;
             Weight = weight;
             Name = name;
+        }
+
+        public double CalculatePrice()
+        {
+            var cost = PricePerKg * Weight;
+            return cost;
         }
 
         public double Accept(IShoppingCartVisitor visitor)
