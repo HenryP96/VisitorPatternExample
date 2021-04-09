@@ -9,6 +9,7 @@ namespace VisitorPatternExample
     {
         public static void Main()
         {
+            double totalCost = 0;
             Console.WriteLine("Adding items to the shopping cart...");
 
             var cart = new List<IStoreElement>
@@ -23,15 +24,21 @@ namespace VisitorPatternExample
                newly added extensions from the 'Visitor' */
             Console.WriteLine("Calculating total costs of items in shopping cart...");
 
-            double totalCost = 0;
             IVisitor priceVisitor = new PriceChangeVisitor();
 
             foreach (IStoreElement element in cart)
             {
                 totalCost += element.Accept(priceVisitor);
             }
+
             Console.WriteLine($"Total cost: {totalCost} kr.");
             Console.WriteLine("");
+
+
+
+
+
+
 
 
             /* Printing info of items in shopping cart using the

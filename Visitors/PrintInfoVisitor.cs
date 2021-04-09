@@ -23,7 +23,7 @@ namespace VisitorPatternExample
         public double Visit(Shirt shirt)
         {
             Console.WriteLine($"The brand of the shirt is {shirt.Brand}, has the color {shirt.Color}" +
-                              $"and the price is {shirt.Price} kr.");
+                              $" and the price is {shirt.Price} kr.");
             return 0.0;
         }
     }

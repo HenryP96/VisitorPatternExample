@@ -63,7 +63,6 @@ namespace VisitorPatternExample
                 {
                     cost = 0;
                 }
-
                 temp += " (30 kr. discount)";
             }
 
