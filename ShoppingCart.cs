@@ -10,8 +10,9 @@ namespace VisitorPatternExample
         public static void Main()
         {
             double totalCost = 0;
-            Console.WriteLine("Adding items to the shopping cart...");
 
+            // Adding items to the shopping cart
+            Console.WriteLine("Adding items to the shopping cart...");
             var cart = new List<IStoreElement>
             {
                 new Fruit(50, 1.2, "Apple"),
@@ -33,12 +34,6 @@ namespace VisitorPatternExample
 
             Console.WriteLine($"Total cost: {totalCost} kr.");
             Console.WriteLine("");
-
-
-
-
-
-
 
 
             /* Printing info of items in shopping cart using the

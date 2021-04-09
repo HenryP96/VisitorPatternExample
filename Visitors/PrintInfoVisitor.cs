@@ -14,6 +14,7 @@ namespace VisitorPatternExample
 
         public double Visit(Milk milk)
         {
+            // Changing date format to dd-mm-yyyy
             string formattedDate = milk.ExpiryDate.ToString("dd-MM-yyyy");
             Console.WriteLine($"The brand of the milk is {milk.Brand}, the expiry date is {formattedDate}" +
                               $" and the price is {milk.Price} kr.");
